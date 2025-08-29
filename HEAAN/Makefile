@@ -1,6 +1,6 @@
 CC = g++
 LDFLAGS = -lgmp -lntl -lm 
-CXXFLAGS = -g -std=c++11 -pg 
+CXXFLAGS = -pg -g -std=c++11
 LIBPATH = lib
 
 
@@ -18,11 +18,11 @@ HEAAN-o0: lib
 
 # Tool invocations
 HEAAN-o2: lib
-	$(CC) $(CXXFLAGS) -O2 ./run/run.cpp ./lib/libHEAAN.a -o $@ $(LDFLAGS)
+	$(CC) $(CXXFLAGS) -L$(LIBPATH) -O2 ./run/run.cpp -lHEAAN -o $@ $(LDFLAGS)
 	
 # Tool invocations
 HEAAN-o3: lib
-	$(CC) $(CXXFLAGS) -O3 ./run/run.cpp ./lib/libHEAAN.a -o $@ $(LDFLAGS)
+	$(CC) $(CXXFLAGS) -L$(LIBPATH) -O3 ./run/run.cpp -lHEAAN -o $@ $(LDFLAGS)
 
 # Other Targets
 clean:

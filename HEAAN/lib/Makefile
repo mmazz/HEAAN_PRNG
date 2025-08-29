@@ -1,6 +1,6 @@
 # Compiler and flags
 CXX      := g++
-CXXFLAGS := -O3 -std=c++11 -pthread -I../src -I/usr/local/include
+CXXFLAGS := -g -pg -std=c++11 -pthread -I../src -I/usr/local/include
 LDFLAGS  := -L. -lHEAAN -lntl -lgmp -lm
 
 # Directories
@@ -14,7 +14,6 @@ OBJS     := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
 # Targets
 LIB      := libHEAAN.a
 TARGET   := HEAAN
-MAIN     := run.cpp
 
 .PHONY: all clean
 

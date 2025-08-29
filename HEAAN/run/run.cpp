@@ -19,6 +19,7 @@ int main() {
    * Params: logN, logQ, logp, logSlots
    * Suggested: 13, 65, 30, 3
    */
+
   TestScheme::testEncodeBatch(13, 65, 30, 3);
 
   /*

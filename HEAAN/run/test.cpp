@@ -1,11 +1,11 @@
 #include "../src/HEAAN.h"
-#include "utils.cpp"
 #include <cmath>
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
 #include <string>
+#include <unistd.h>
 
 using namespace std;
 using namespace NTL;
@@ -34,7 +34,7 @@ inline double norm2(std::complex<double> *vecInput, double *vecOutput,
   return res;
 }
 
-int main(int argc, char *argv[]) {
+int main() {
   try {
     long logN = DEFAULT_LOG_N;
     long logQ = DEFAULT_LOG_Q;
@@ -43,21 +43,6 @@ int main(int argc, char *argv[]) {
     unsigned int MAX = DEFAULT_MAX;
     size_t seed = DEFAULT_LOOPS;
     int gapShift = DEFAULT_GAP_SHIFT;
-
-    if (argc > 1)
-      logN = std::stol(argv[1]);
-    if (argc > 2)
-      logQ = std::stol(argv[2]);
-    if (argc > 3)
-      logP = std::stol(argv[3]);
-    if (argc > 4)
-      gapShift = std::stoi(argv[4]);
-    if (argc > 5)
-      MIN = std::stoi(argv[5]);
-    if (argc > 6)
-      MAX = std::stoi(argv[6]);
-    if (argc > 7)
-      seed = std::stoi(argv[7]);
 
     long h = pow(2, logN);
     if (h > MAX_H)
@@ -88,7 +73,7 @@ int main(int argc, char *argv[]) {
     Scheme scheme(sk, context);
 
     Plaintext plain = scheme.encode(vals, slots, logP, logQ);
-    Ciphertext cipher = scheme.encryptMsg(plain, seed_NTL);
+    Ciphertext cipher = scheme.encryptMsg(plain);
 
     Plaintext golden_plain = scheme.decryptMsg(sk, cipher);
     complex<double> *golden_val = scheme.decode(golden_plain);
