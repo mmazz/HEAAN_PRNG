@@ -187,12 +187,12 @@ print_success "Binary compiled successfully"
 print_step "2" "Running binary to generate profiling data"
 
 # Remove old gmon.out if it exists
-[ -f gmon.out ] && rm gmon.out callgrind*
+[ -f gmon.out ] && rm gmon.out
 
 if [ "$VERBOSE" = true ]; then
-  valgrind --tool=callgrind --dump-instr=yes ./"$BINARY_NAME"
+  ./"$BINARY_NAME"
 else
-  valgrind --tool=callgrind --dump-instr=yes ./"$BINARY_NAME" >/dev/null 2>&1
+  ./"$BINARY_NAME" >/dev/null 2>&1
 fi
 
 if [ ! -f gmon.out ]; then
@@ -205,7 +205,7 @@ print_success "Profiling data generated (gmon.out)"
 # Step 3: Generate filtered gprof output
 print_step "3" "Generating filtered gprof output"
 
-gprof -b -q "$BINARY_NAME" gmon.out | grep -v "std::__" | grep -v "~" >"$GPROF_OUTPUT"
+gprof -b -q "$BINARY_NAME" gmon.out | grep -v "~" >"$GPROF_OUTPUT"
 
 if [ ! -s "$GPROF_OUTPUT" ]; then
   print_error "No gprof data generated or all functions were filtered out"
@@ -273,11 +273,11 @@ echo "  - Assembly output:   $(ls -lh "$ASM_OUTPUT" | awk '{print $5}')"
 echo "  - Instruction count: $(ls -lh "$INSTRUCTION_OUTPUT" | awk '{print $5}')"
 
 # Cleanup option
-echo ""
-read -p "Remove intermediate files (gmon.out, ${GPROF_OUTPUT}, ${ASM_OUTPUT})? [y/N]: " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  rm -f gmon.out "$GPROF_OUTPUT" "$ASM_OUTPUT"
-  print_success "Intermediate files cleaned up"
-  echo "Kept: $BINARY_NAME and $INSTRUCTION_OUTPUT"
-fi
+#echo ""
+#read -p "Remove intermediate files (gmon.out, ${GPROF_OUTPUT}, ${ASM_OUTPUT})? [y/N]: " -n 1 -r
+#echo
+#if [[ $REPLY =~ ^[Yy]$ ]]; then
+rm -f ./gmon.out ./bin/"$GPROF_OUTPUT" ./bin/"$ASM_OUTPUT"
+print_success "Intermediate files cleaned up"
+echo "Kept: $BINARY_NAME and $INSTRUCTION_OUTPUT"
+#fi
