@@ -95,7 +95,7 @@ def display_summary(functions):
     print(f"Total functions analyzed: {len(functions)}")
     print(f"Total instructions across all functions: {total_instructions_all_funcs}")
     print("\nMost common instructions overall:")
-    for instr, count in all_instructions.most_common(10):
+    for instr, count in all_instructions.most_common():
         print(f"  - {instr}: {count}")
 
 def main():

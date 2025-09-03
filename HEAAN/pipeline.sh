@@ -8,8 +8,9 @@ set -e # Exit on any error
 UTILS_DIR="../utils"
 DEPTH=2
 BINARY_NAME=""
+FUNCTION_NAME=""
 CLEAN_BUILD=false
-VERBOSE=false
+VERBOSE=true
 
 # Color codes for output
 RED='\033[0;31m'
@@ -38,24 +39,28 @@ print_error() {
 # Function to display usage
 usage() {
   cat <<EOF
-Usage: $0 [OPTIONS] <binary_name> <call_graph_depth>
+Usage: $0 [OPTIONS] <binary_name> <call_graph_depth> [function_name]
 
 Complete pipeline for gprof analysis with assembly extraction and instruction counting.
 
 Arguments:
     binary_name         Name of the binary to analyze
     call_graph_depth    Depth of call graph to extract (0=root only, 1=root+children, etc.)
+    function_name       Function to use as root for analysis (optional)
 
 Options:
     -u, --utils-dir DIR     Utils directory path (default: ../utils)
+    -f, --function NAME     Function to use as root for analysis
     -c, --clean             Clean build (make clean first)
     -v, --verbose           Verbose output
     -h, --help              Show this help message
 
 Example:
-    $0 HEAAN-o0 2                    # Analyze HEAAN-o0 with depth 2
-    $0 -c -v my_program 1            # Clean build, verbose, depth 1
-    $0 --utils-dir ./scripts HEAAN-o0 3    # Custom utils directory
+    $0 HEAAN-o0 2                                    # Analyze HEAAN-o0 with depth 2
+    $0 HEAAN-o0 2 "Scheme::addEncKey(SecretKey&)"    # With specific function
+    $0 -f "main" HEAAN-o0 1                          # Using --function option
+    $0 -c -v my_program 1                            # Clean build, verbose, depth 1
+    $0 --utils-dir ./scripts HEAAN-o0 3              # Custom utils directory
 
 Pipeline steps:
     1. Compile binary with make
@@ -71,6 +76,10 @@ while [[ $# -gt 0 ]]; do
   case $1 in
   -u | --utils-dir)
     UTILS_DIR="$2"
+    shift 2
+    ;;
+  -f | --function)
+    FUNCTION_NAME="$2"
     shift 2
     ;;
   -c | --clean)
@@ -95,6 +104,8 @@ while [[ $# -gt 0 ]]; do
       BINARY_NAME="$1"
     elif [ -z "$DEPTH" ]; then
       DEPTH="$1"
+    elif [ -z "$FUNCTION_NAME" ]; then
+      FUNCTION_NAME="$1"
     else
       print_error "Too many arguments"
       usage
@@ -116,6 +127,12 @@ if [ -z "$DEPTH" ] || ! [[ "$DEPTH" =~ ^[0-9]+$ ]]; then
   print_error "Call graph depth must be a non-negative integer"
   usage
   exit 1
+fi
+
+# Set default function name if not provided
+if [ -z "$FUNCTION_NAME" ]; then
+  FUNCTION_NAME="Scheme::addEncKey(SecretKey&)"
+  print_warning "No function name provided, using default: $FUNCTION_NAME"
 fi
 
 # Validate utils directory
@@ -155,6 +172,7 @@ echo "Gprof Analysis Pipeline"
 echo "======================"
 echo "Binary: $BINARY_NAME"
 echo "Call graph depth: $DEPTH"
+echo "Function name: $FUNCTION_NAME"
 echo "Utils directory: $UTILS_DIR"
 echo ""
 
@@ -216,12 +234,12 @@ GPROF_LINES=$(wc -l <"$GPROF_OUTPUT")
 print_success "Gprof output generated ($GPROF_LINES lines) -> $GPROF_OUTPUT"
 
 # Step 4: Extract assembly code
-print_step "4" "Extracting assembly code (depth: $DEPTH)"
+print_step "4" "Extracting assembly code (depth: $DEPTH, function: $FUNCTION_NAME)"
 
 if [ "$VERBOSE" = true ]; then
-  python3 "$GPROF_EXTRACTOR" "$BINARY_NAME" "$GPROF_OUTPUT" "$DEPTH" >"$ASM_OUTPUT"
+  python3 "$GPROF_EXTRACTOR" "$BINARY_NAME" "$GPROF_OUTPUT" "$DEPTH" --root "$FUNCTION_NAME" >"$ASM_OUTPUT"
 else
-  python3 "$GPROF_EXTRACTOR" "$BINARY_NAME" "$GPROF_OUTPUT" "$DEPTH" >"$ASM_OUTPUT" 2>/dev/null
+  python3 "$GPROF_EXTRACTOR" "$BINARY_NAME" "$GPROF_OUTPUT" "$DEPTH" --root "$FUNCTION_NAME" >"$ASM_OUTPUT" 2>/dev/null
 fi
 
 if [ ! -s "$ASM_OUTPUT" ]; then

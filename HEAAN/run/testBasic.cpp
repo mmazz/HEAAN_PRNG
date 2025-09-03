@@ -11,8 +11,7 @@
 using namespace std;
 using namespace NTL;
 
-
 int main() {
-    TestScheme::testBasic(13, 65, 30, 3);
-    return 0;
+  TestScheme::testBasic(13, 65, 30, 3);
+  return 0;
 }
