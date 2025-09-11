@@ -1,0 +1,239 @@
+Function: 'Ciphertext::~Ciphertext()'
+Total instructions: 15
+Instruction breakdown:
+  - mov: 6
+  - call: 3
+  - push: 1
+  - sub: 1
+  - add: 1
+  - nop: 1
+  - leave: 1
+  - ret: 1
+----------------------------------------
+Function: 'Context::Context(long, long, double, long)'
+Total instructions: 37
+Instruction breakdown:
+  - mov: 25
+  - call: 3
+  - add: 3
+  - push: 2
+  - movsd: 2
+  - sub: 1
+  - lea: 1
+----------------------------------------
+Function: 'Context::~Context()'
+Total instructions: 14
+Instruction breakdown:
+  - mov: 6
+  - call: 3
+  - push: 1
+  - sub: 1
+  - leave: 1
+  - ret: 1
+  - nop: 1
+----------------------------------------
+Function: 'EvaluatorUtils::randomComplex(double)'
+Total instructions: 19
+Instruction breakdown:
+  - mov: 5
+  - movsd: 3
+  - movq: 3
+  - call: 2
+  - pxor: 2
+  - push: 1
+  - sub: 1
+  - xor: 1
+  - lea: 1
+----------------------------------------
+Function: 'Scheme::Scheme(SecretKey&, Context&)'
+Total instructions: 14
+Instruction breakdown:
+  - mov: 9
+  - push: 2
+  - sub: 1
+  - call: 1
+  - add: 1
+----------------------------------------
+Function: 'Scheme::decryptSingle(SecretKey&, Ciphertext&)'
+Total instructions: 50
+Instruction breakdown:
+  - mov: 21
+  - call: 8
+  - lea: 4
+  - movsd: 4
+  - sub: 3
+  - push: 2
+  - nop: 2
+  - je: 2
+  - xor: 1
+  - jmp: 1
+  - leave: 1
+  - ret: 1
+----------------------------------------
+Function: 'Scheme::encryptSingle(std::complex<double>, long, long)'
+Total instructions: 52
+Instruction breakdown:
+  - mov: 25
+  - call: 8
+  - lea: 4
+  - sub: 3
+  - push: 2
+  - nop: 2
+  - je: 2
+  - movsd: 1
+  - xor: 1
+  - movq: 1
+  - jmp: 1
+  - leave: 1
+  - ret: 1
+----------------------------------------
+Function: 'Scheme::~Scheme()'
+Total instructions: 8
+Instruction breakdown:
+  - mov: 4
+  - push: 1
+  - sub: 1
+  - call: 1
+  - add: 1
+----------------------------------------
+Function: 'SecretKey::SecretKey(long, long)'
+Total instructions: 35
+Instruction breakdown:
+  - mov: 22
+  - call: 5
+  - push: 2
+  - sub: 1
+  - shl: 1
+  - cltq: 1
+  - jmp: 1
+  - leave: 1
+  - ret: 1
+----------------------------------------
+Function: 'SecretKey::~SecretKey()'
+Total instructions: 11
+Instruction breakdown:
+  - mov: 4
+  - call: 2
+  - push: 1
+  - sub: 1
+  - nop: 1
+  - leave: 1
+  - ret: 1
+----------------------------------------
+Function: 'StringUtils::showcompare(std::complex<double>, std::complex<double>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)'
+Total instructions: 65
+Instruction breakdown:
+  - mov: 32
+  - lea: 12
+  - call: 10
+  - movapd: 3
+  - push: 2
+  - movsd: 2
+  - sub: 1
+  - xor: 1
+  - movq: 1
+  - jmp: 1
+----------------------------------------
+Function: 'TestScheme::testEncodeSingle(long, long, long)'
+Total instructions: 63
+Instruction breakdown:
+  - mov: 30
+  - lea: 12
+  - call: 10
+  - movq: 3
+  - push: 2
+  - nop: 2
+  - sub: 1
+  - xor: 1
+  - movapd: 1
+  - movsd: 1
+----------------------------------------
+Function: 'TimeUtils::TimeUtils()'
+Total instructions: 12
+Instruction breakdown:
+  - mov: 3
+  - nop: 2
+  - push: 1
+  - sub: 1
+  - call: 1
+  - pxor: 1
+  - movsd: 1
+  - leave: 1
+  - ret: 1
+----------------------------------------
+Function: 'TimeUtils::start(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)'
+Total instructions: 36
+Instruction breakdown:
+  - mov: 19
+  - lea: 7
+  - call: 6
+  - push: 2
+  - sub: 1
+  - xor: 1
+----------------------------------------
+Function: 'TimeUtils::stop(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)'
+Total instructions: 68
+Instruction breakdown:
+  - mov: 35
+  - call: 7
+  - lea: 6
+  - movsd: 5
+  - sub: 3
+  - push: 2
+  - pxor: 2
+  - cvtsi2sd: 2
+  - xor: 1
+  - add: 1
+  - mulsd: 1
+  - divsd: 1
+  - addsd: 1
+  - movq: 1
+----------------------------------------
+Function: 'main'
+Total instructions: 10
+Instruction breakdown:
+  - mov: 5
+  - call: 2
+  - push: 1
+  - pop: 1
+  - ret: 1
+----------------------------------------
+Function: 'std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&)'
+Total instructions: 0
+----------------------------------------
+Function: 'std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()'
+Total instructions: 0
+----------------------------------------
+Function: 'std::__new_allocator<char>::~__new_allocator()'
+Total instructions: 0
+----------------------------------------
+========================================
+Overall Summary
+========================================
+Total functions analyzed: 19
+Total instructions across all functions: 509
+
+Most common instructions overall:
+  - mov: 251
+  - call: 72
+  - lea: 47
+  - push: 25
+  - sub: 21
+  - movsd: 19
+  - nop: 11
+  - movq: 9
+  - ret: 8
+  - add: 7
+  - leave: 7
+  - xor: 7
+  - pxor: 5
+  - je: 4
+  - jmp: 4
+  - movapd: 4
+  - cvtsi2sd: 2
+  - shl: 1
+  - cltq: 1
+  - mulsd: 1
+  - divsd: 1
+  - addsd: 1
+  - pop: 1

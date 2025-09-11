@@ -6,12 +6,12 @@
  * work.  If not, see <http://creativecommons.org/licenses/by-nc/3.0/>.
  */
 
-#include "../src/HEAAN.h"
+#include "../../src/HEAAN.h"
 
 using namespace std;
 using namespace NTL;
 
 int main() {
-  TestScheme::testEncodeSingle(13, 65, 30);
+  TestScheme::testEncodeBatch(13, 65, 30, 3);
   return 0;
 }

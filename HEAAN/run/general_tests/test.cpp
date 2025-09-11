@@ -12,6 +12,6 @@ using namespace std;
 using namespace NTL;
 
 int main() {
-  TestScheme::testEncodeSingle(13, 65, 30);
+  TestScheme::testEncodeBatch(13, 65, 30, 3);
   return 0;
 }

@@ -8,7 +8,7 @@ set -e # Exit on any error
 UTILS_DIR="../utils"
 DEPTH=2
 BINARY_NAME=""
-FUNCTION_NAME=""
+FUNCTION_NAME="main"
 CLEAN_BUILD=false
 VERBOSE=true
 
@@ -223,7 +223,7 @@ print_success "Profiling data generated (gmon.out)"
 # Step 3: Generate filtered gprof output
 print_step "3" "Generating filtered gprof output"
 
-gprof -b -q "$BINARY_NAME" gmon.out | grep -v "~" >"$GPROF_OUTPUT"
+gprof -b -q "$BINARY_NAME" gmon.out >"$GPROF_OUTPUT"
 
 if [ ! -s "$GPROF_OUTPUT" ]; then
   print_error "No gprof data generated or all functions were filtered out"
@@ -237,9 +237,9 @@ print_success "Gprof output generated ($GPROF_LINES lines) -> $GPROF_OUTPUT"
 print_step "4" "Extracting assembly code (depth: $DEPTH, function: $FUNCTION_NAME)"
 
 if [ "$VERBOSE" = true ]; then
-  python3 "$GPROF_EXTRACTOR" "$BINARY_NAME" "$GPROF_OUTPUT" "$DEPTH" --root "$FUNCTION_NAME" >"$ASM_OUTPUT"
+  python3 "$GPROF_EXTRACTOR" "$BINARY_NAME" "$GPROF_OUTPUT" "$DEPTH" >"$ASM_OUTPUT"
 else
-  python3 "$GPROF_EXTRACTOR" "$BINARY_NAME" "$GPROF_OUTPUT" "$DEPTH" --root "$FUNCTION_NAME" >"$ASM_OUTPUT" 2>/dev/null
+  python3 "$GPROF_EXTRACTOR" "$BINARY_NAME" "$GPROF_OUTPUT" "$DEPTH" >"$ASM_OUTPUT" 2>/dev/null
 fi
 
 if [ ! -s "$ASM_OUTPUT" ]; then

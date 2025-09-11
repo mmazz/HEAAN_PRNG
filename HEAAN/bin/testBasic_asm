@@ -1,0 +1,623 @@
+Assembly code for functions reachable within 2 levels from 'main':
+================================================================================
+
+Function: Ciphertext::~Ciphertext()
+----------------------------------------
+00000000000143b4 <Ciphertext::~Ciphertext()>:
+   143b4:	55                   	push   %rbp
+   143b5:	48 89 e5             	mov    %rsp,%rbp
+   143b8:	48 83 ec 10          	sub    $0x10,%rsp
+   143bc:	e8 3f 1f ff ff       	call   6300 <mcount@plt>
+   143c1:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+   143c5:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+   143c9:	48 83 c0 08          	add    $0x8,%rax
+   143cd:	48 89 c7             	mov    %rax,%rdi
+   143d0:	e8 91 fb ff ff       	call   13f66 <NTL::ZZX::~ZZX()>
+   143d5:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+   143d9:	48 89 c7             	mov    %rax,%rdi
+   143dc:	e8 85 fb ff ff       	call   13f66 <NTL::ZZX::~ZZX()>
+   143e1:	90                   	nop
+   143e2:	c9                   	leave
+   143e3:	c3                   	ret
+
+
+Function: Context::Context(long, long, double, long)
+----------------------------------------
+0000000000018352 <Context::Context(Context const&)>:
+   18352:	55                   	push   %rbp
+   18353:	48 89 e5             	mov    %rsp,%rbp
+   18356:	53                   	push   %rbx
+   18357:	48 83 ec 18          	sub    $0x18,%rsp
+   1835b:	e8 a0 df fe ff       	call   6300 <mcount@plt>
+   18360:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+   18364:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+   18368:	48 8d 15 c1 b6 02 00 	lea    0x2b6c1(%rip),%rdx        # 43a30 <vtable for Context+0x10>
+   1836f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+   18373:	48 89 10             	mov    %rdx,(%rax)
+   18376:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+   1837a:	48 8b 50 08          	mov    0x8(%rax),%rdx
+   1837e:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+   18382:	48 89 50 08          	mov    %rdx,0x8(%rax)
+   18386:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+   1838a:	48 8b 50 10          	mov    0x10(%rax),%rdx
+   1838e:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+   18392:	48 89 50 10          	mov    %rdx,0x10(%rax)
+   18396:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+   1839a:	f2 0f 10 40 18       	movsd  0x18(%rax),%xmm0
+   1839f:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+   183a3:	f2 0f 11 40 18       	movsd  %xmm0,0x18(%rax)
+   183a8:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+   183ac:	48 8b 50 20          	mov    0x20(%rax),%rdx
+   183b0:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+   183b4:	48 89 50 20          	mov    %rdx,0x20(%rax)
+   183b8:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+   183bc:	48 83 c0 50          	add    $0x50,%rax
+   183c0:	48 89 c7             	mov    %rax,%rdi
+   183c3:	e8 78 e8 fe ff       	call   6c40 <NTL::ZZ::ZZ()>
+   183c8:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+   183cc:	48 83 c0 58          	add    $0x58,%rax
+   183d0:	48 89 c7             	mov    %rax,%rdi
+   183d3:	e8 68 e8 fe ff       	call   6c40 <NTL::ZZ::ZZ()>
+   183d8:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+   183dc:	48 83 c0 78          	add    $0x78,%rax
+   183e0:	48 89 c7             	mov    %rax,%rdi
+
+
+Function: Context::~Context()
+----------------------------------------
+0000000000018dd8 <Context::~Context()>:
+   18dd8:	55                   	push   %rbp
+   18dd9:	48 89 e5             	mov    %rsp,%rbp
+   18ddc:	48 83 ec 10          	sub    $0x10,%rsp
+   18de0:	e8 1b d5 fe ff       	call   6300 <mcount@plt>
+   18de5:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+   18de9:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+   18ded:	48 89 c7             	mov    %rax,%rdi
+   18df0:	e8 57 ff ff ff       	call   18d4c <Context::~Context()>
+   18df5:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+   18df9:	48 89 c7             	mov    %rax,%rdi
+   18dfc:	e8 8f d5 fe ff       	call   6390 <operator delete(void*)@plt>
+   18e01:	c9                   	leave
+   18e02:	c3                   	ret
+   18e03:	90                   	nop
+
+
+Function: EvaluatorUtils::randomComplex(double)
+----------------------------------------
+000000000001c6d4 <EvaluatorUtils::randomComplex(double)>:
+   1c6d4:	55                   	push   %rbp
+   1c6d5:	48 89 e5             	mov    %rsp,%rbp
+   1c6d8:	48 83 ec 30          	sub    $0x30,%rsp
+   1c6dc:	e8 1f 9c fe ff       	call   6300 <mcount@plt>
+   1c6e1:	f2 0f 11 45 d8       	movsd  %xmm0,-0x28(%rbp)
+   1c6e6:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+   1c6ed:	00 00 
+   1c6ef:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+   1c6f3:	31 c0                	xor    %eax,%eax
+   1c6f5:	66 0f ef c0          	pxor   %xmm0,%xmm0
+   1c6f9:	f2 0f 11 45 e0       	movsd  %xmm0,-0x20(%rbp)
+   1c6fe:	66 0f ef c0          	pxor   %xmm0,%xmm0
+   1c702:	f2 0f 11 45 e8       	movsd  %xmm0,-0x18(%rbp)
+   1c707:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+   1c70b:	66 48 0f 6e c0       	movq   %rax,%xmm0
+   1c710:	e8 8d ff ff ff       	call   1c6a2 <EvaluatorUtils::randomReal(double)>
+   1c715:	66 48 0f 7e c0       	movq   %xmm0,%rax
+   1c71a:	48 8d 55 e0          	lea    -0x20(%rbp),%rdx
+   1c71e:	66 48 0f 6e c0       	movq   %rax,%xmm0
+   1c723:	48 89 d7             	mov    %rdx,%rdi
+
+
+Function: Scheme::Scheme(SecretKey&, Context&)
+----------------------------------------
+0000000000023d9a <Scheme::Scheme(SecretKey&, Context&)>:
+   23d9a:	55                   	push   %rbp
+   23d9b:	48 89 e5             	mov    %rsp,%rbp
+   23d9e:	53                   	push   %rbx
+   23d9f:	48 83 ec 28          	sub    $0x28,%rsp
+   23da3:	e8 58 25 fe ff       	call   6300 <mcount@plt>
+   23da8:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+   23dac:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+   23db0:	48 89 55 d8          	mov    %rdx,-0x28(%rbp)
+   23db4:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+   23db8:	48 8b 55 d8          	mov    -0x28(%rbp),%rdx
+   23dbc:	48 89 10             	mov    %rdx,(%rax)
+   23dbf:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+   23dc3:	48 83 c0 08          	add    $0x8,%rax
+   23dc7:	48 89 c7             	mov    %rax,%rdi
+
+
+Function: Scheme::decryptSingle(SecretKey&, Ciphertext&)
+----------------------------------------
+0000000000025bb4 <Scheme::decryptSingle(SecretKey&, Ciphertext&)>:
+   25bb4:	55                   	push   %rbp
+   25bb5:	48 89 e5             	mov    %rsp,%rbp
+   25bb8:	53                   	push   %rbx
+   25bb9:	48 83 ec 68          	sub    $0x68,%rsp
+   25bbd:	e8 3e 07 fe ff       	call   6300 <mcount@plt>
+   25bc2:	48 89 7d b8          	mov    %rdi,-0x48(%rbp)
+   25bc6:	48 89 75 b0          	mov    %rsi,-0x50(%rbp)
+   25bca:	48 89 55 a8          	mov    %rdx,-0x58(%rbp)
+   25bce:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+   25bd5:	00 00 
+   25bd7:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+   25bdb:	31 c0                	xor    %eax,%eax
+   25bdd:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+   25be1:	48 8b 4d a8          	mov    -0x58(%rbp),%rcx
+   25be5:	48 8b 55 b0          	mov    -0x50(%rbp),%rdx
+   25be9:	48 8b 75 b8          	mov    -0x48(%rbp),%rsi
+   25bed:	48 89 c7             	mov    %rax,%rdi
+   25bf0:	e8 ad f9 ff ff       	call   255a2 <Scheme::decryptMsg(SecretKey&, Ciphertext&)>
+   25bf5:	48 8d 55 c0          	lea    -0x40(%rbp),%rdx
+   25bf9:	48 8b 45 b8          	mov    -0x48(%rbp),%rax
+   25bfd:	48 89 d6             	mov    %rdx,%rsi
+   25c00:	48 89 c7             	mov    %rax,%rdi
+   25c03:	e8 2c f5 ff ff       	call   25134 <Scheme::decodeSingle(Plaintext&)>
+   25c08:	f2 0f 11 45 a0       	movsd  %xmm0,-0x60(%rbp)
+   25c0d:	f2 0f 11 4d 98       	movsd  %xmm1,-0x68(%rbp)
+   25c12:	90                   	nop
+   25c13:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+   25c17:	48 89 c7             	mov    %rax,%rdi
+   25c1a:	e8 5b 69 00 00       	call   2c57a <Plaintext::~Plaintext()>
+   25c1f:	f2 0f 10 45 a0       	movsd  -0x60(%rbp),%xmm0
+   25c24:	f2 0f 10 4d 98       	movsd  -0x68(%rbp),%xmm1
+   25c29:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+   25c2d:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+   25c34:	00 00 
+   25c36:	74 35                	je     25c6d <Scheme::decryptSingle(SecretKey&, Ciphertext&)+0xb9>
+   25c38:	eb 2e                	jmp    25c68 <Scheme::decryptSingle(SecretKey&, Ciphertext&)+0xb4>
+   25c3a:	48 89 c3             	mov    %rax,%rbx
+   25c3d:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+   25c41:	48 89 c7             	mov    %rax,%rdi
+   25c44:	e8 31 69 00 00       	call   2c57a <Plaintext::~Plaintext()>
+   25c49:	48 89 d8             	mov    %rbx,%rax
+   25c4c:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+   25c50:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+   25c57:	00 00 
+   25c59:	74 05                	je     25c60 <Scheme::decryptSingle(SecretKey&, Ciphertext&)+0xac>
+   25c5b:	e8 e0 07 fe ff       	call   6440 <__stack_chk_fail@plt>
+   25c60:	48 89 c7             	mov    %rax,%rdi
+   25c63:	e8 88 0a fe ff       	call   66f0 <_Unwind_Resume@plt>
+   25c68:	e8 d3 07 fe ff       	call   6440 <__stack_chk_fail@plt>
+   25c6d:	48 8b 5d f8          	mov    -0x8(%rbp),%rbx
+   25c71:	c9                   	leave
+   25c72:	c3                   	ret
+   25c73:	90                   	nop
+
+
+Function: Scheme::encryptSingle(std::complex<double>, long, long)
+----------------------------------------
+0000000000025a12 <Scheme::encryptSingle(double, long, long)>:
+   25a12:	55                   	push   %rbp
+   25a13:	48 89 e5             	mov    %rsp,%rbp
+   25a16:	53                   	push   %rbx
+   25a17:	48 83 ec 68          	sub    $0x68,%rsp
+   25a1b:	e8 e0 08 fe ff       	call   6300 <mcount@plt>
+   25a20:	48 89 7d b8          	mov    %rdi,-0x48(%rbp)
+   25a24:	48 89 75 b0          	mov    %rsi,-0x50(%rbp)
+   25a28:	f2 0f 11 45 a8       	movsd  %xmm0,-0x58(%rbp)
+   25a2d:	48 89 55 a0          	mov    %rdx,-0x60(%rbp)
+   25a31:	48 89 4d 98          	mov    %rcx,-0x68(%rbp)
+   25a35:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+   25a3c:	00 00 
+   25a3e:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+   25a42:	31 c0                	xor    %eax,%eax
+   25a44:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+   25a48:	48 8b 4d 98          	mov    -0x68(%rbp),%rcx
+   25a4c:	48 8b 55 a0          	mov    -0x60(%rbp),%rdx
+   25a50:	48 8b 7d a8          	mov    -0x58(%rbp),%rdi
+   25a54:	48 8b 75 b0          	mov    -0x50(%rbp),%rsi
+   25a58:	66 48 0f 6e c7       	movq   %rdi,%xmm0
+   25a5d:	48 89 c7             	mov    %rax,%rdi
+   25a60:	e8 bd f5 ff ff       	call   25022 <Scheme::encodeSingle(double, long, long)>
+   25a65:	48 8b 45 b8          	mov    -0x48(%rbp),%rax
+   25a69:	48 8d 55 c0          	lea    -0x40(%rbp),%rdx
+   25a6d:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+   25a71:	48 89 ce             	mov    %rcx,%rsi
+   25a74:	48 89 c7             	mov    %rax,%rdi
+   25a77:	e8 00 f7 ff ff       	call   2517c <Scheme::encryptMsg(Plaintext&)>
+   25a7c:	90                   	nop
+   25a7d:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+   25a81:	48 89 c7             	mov    %rax,%rdi
+   25a84:	e8 f1 6a 00 00       	call   2c57a <Plaintext::~Plaintext()>
+   25a89:	90                   	nop
+   25a8a:	48 8b 45 e8          	mov    -0x18(%rbp),%rax
+   25a8e:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+   25a95:	00 00 
+   25a97:	74 35                	je     25ace <Scheme::encryptSingle(double, long, long)+0xbc>
+   25a99:	eb 2e                	jmp    25ac9 <Scheme::encryptSingle(double, long, long)+0xb7>
+   25a9b:	48 89 c3             	mov    %rax,%rbx
+   25a9e:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+   25aa2:	48 89 c7             	mov    %rax,%rdi
+   25aa5:	e8 d0 6a 00 00       	call   2c57a <Plaintext::~Plaintext()>
+   25aaa:	48 89 d8             	mov    %rbx,%rax
+   25aad:	48 8b 55 e8          	mov    -0x18(%rbp),%rdx
+   25ab1:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+   25ab8:	00 00 
+   25aba:	74 05                	je     25ac1 <Scheme::encryptSingle(double, long, long)+0xaf>
+   25abc:	e8 7f 09 fe ff       	call   6440 <__stack_chk_fail@plt>
+   25ac1:	48 89 c7             	mov    %rax,%rdi
+   25ac4:	e8 27 0c fe ff       	call   66f0 <_Unwind_Resume@plt>
+   25ac9:	e8 72 09 fe ff       	call   6440 <__stack_chk_fail@plt>
+   25ace:	48 8b 45 b8          	mov    -0x48(%rbp),%rax
+   25ad2:	48 8b 5d f8          	mov    -0x8(%rbp),%rbx
+   25ad6:	c9                   	leave
+   25ad7:	c3                   	ret
+
+
+Function: Scheme::~Scheme()
+----------------------------------------
+0000000000014380 <Scheme::~Scheme()>:
+   14380:	55                   	push   %rbp
+   14381:	48 89 e5             	mov    %rsp,%rbp
+   14384:	48 83 ec 10          	sub    $0x10,%rsp
+   14388:	e8 73 1f ff ff       	call   6300 <mcount@plt>
+   1438d:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+   14391:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+   14395:	48 83 c0 38          	add    $0x38,%rax
+   14399:	48 89 c7             	mov    %rax,%rdi
+
+
+Function: SecretKey::SecretKey(long, long)
+----------------------------------------
+000000000002d78c <SecretKey::SecretKey(long, long)>:
+   2d78c:	55                   	push   %rbp
+   2d78d:	48 89 e5             	mov    %rsp,%rbp
+   2d790:	53                   	push   %rbx
+   2d791:	48 83 ec 38          	sub    $0x38,%rsp
+   2d795:	e8 66 8b fd ff       	call   6300 <mcount@plt>
+   2d79a:	48 89 7d d8          	mov    %rdi,-0x28(%rbp)
+   2d79e:	48 89 75 d0          	mov    %rsi,-0x30(%rbp)
+   2d7a2:	48 89 55 c8          	mov    %rdx,-0x38(%rbp)
+   2d7a6:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+   2d7aa:	48 89 c7             	mov    %rax,%rdi
+   2d7ad:	e8 94 67 fe ff       	call   13f46 <NTL::ZZX::ZZX()>
+   2d7b2:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+   2d7b6:	ba 01 00 00 00       	mov    $0x1,%edx
+   2d7bb:	89 c1                	mov    %eax,%ecx
+   2d7bd:	d3 e2                	shl    %cl,%edx
+   2d7bf:	89 d0                	mov    %edx,%eax
+   2d7c1:	48 98                	cltq
+   2d7c3:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+   2d7c7:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+   2d7cb:	48 8b 55 c8          	mov    -0x38(%rbp),%rdx
+   2d7cf:	48 8b 4d e8          	mov    -0x18(%rbp),%rcx
+   2d7d3:	48 89 ce             	mov    %rcx,%rsi
+   2d7d6:	48 89 c7             	mov    %rax,%rdi
+   2d7d9:	e8 d8 59 00 00       	call   331b6 <NumUtils::sampleHWT(NTL::ZZX&, long, long)>
+   2d7de:	eb 1a                	jmp    2d7fa <SecretKey::SecretKey(long, long)+0x6e>
+   2d7e0:	48 89 c3             	mov    %rax,%rbx
+   2d7e3:	48 8b 45 d8          	mov    -0x28(%rbp),%rax
+   2d7e7:	48 89 c7             	mov    %rax,%rdi
+   2d7ea:	e8 77 67 fe ff       	call   13f66 <NTL::ZZX::~ZZX()>
+   2d7ef:	48 89 d8             	mov    %rbx,%rax
+   2d7f2:	48 89 c7             	mov    %rax,%rdi
+   2d7f5:	e8 f6 8e fd ff       	call   66f0 <_Unwind_Resume@plt>
+   2d7fa:	48 8b 5d f8          	mov    -0x8(%rbp),%rbx
+   2d7fe:	c9                   	leave
+   2d7ff:	c3                   	ret
+
+
+Function: SecretKey::~SecretKey()
+----------------------------------------
+0000000000014340 <SecretKey::~SecretKey()>:
+   14340:	55                   	push   %rbp
+   14341:	48 89 e5             	mov    %rsp,%rbp
+   14344:	48 83 ec 10          	sub    $0x10,%rsp
+   14348:	e8 b3 1f ff ff       	call   6300 <mcount@plt>
+   1434d:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+   14351:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+   14355:	48 89 c7             	mov    %rax,%rdi
+   14358:	e8 09 fc ff ff       	call   13f66 <NTL::ZZX::~ZZX()>
+   1435d:	90                   	nop
+   1435e:	c9                   	leave
+   1435f:	c3                   	ret
+
+
+Function: StringUtils::showcompare(std::complex<double>, std::complex<double>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+----------------------------------------
+0000000000032b06 <StringUtils::showcompare(std::complex<double>, std::complex<double>*, long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)>:
+   32b06:	55                   	push   %rbp
+   32b07:	48 89 e5             	mov    %rsp,%rbp
+   32b0a:	53                   	push   %rbx
+   32b0b:	48 81 ec a8 00 00 00 	sub    $0xa8,%rsp
+   32b12:	e8 e9 37 fd ff       	call   6300 <mcount@plt>
+   32b17:	66 0f 28 d0          	movapd %xmm0,%xmm2
+   32b1b:	66 0f 28 c1          	movapd %xmm1,%xmm0
+   32b1f:	66 0f 28 ca          	movapd %xmm2,%xmm1
+   32b23:	f2 0f 11 8d 70 ff ff 	movsd  %xmm1,-0x90(%rbp)
+   32b2a:	ff 
+   32b2b:	f2 0f 11 85 78 ff ff 	movsd  %xmm0,-0x88(%rbp)
+   32b32:	ff 
+   32b33:	48 89 bd 68 ff ff ff 	mov    %rdi,-0x98(%rbp)
+   32b3a:	48 89 b5 60 ff ff ff 	mov    %rsi,-0xa0(%rbp)
+   32b41:	48 89 95 58 ff ff ff 	mov    %rdx,-0xa8(%rbp)
+   32b48:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+   32b4f:	00 00 
+   32b51:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+   32b55:	31 c0                	xor    %eax,%eax
+   32b57:	48 c7 45 88 00 00 00 	movq   $0x0,-0x78(%rbp)
+   32b5e:	00 
+   32b5f:	e9 b8 02 00 00       	jmp    32e1c <StringUtils::showcompare(std::complex<double>, std::complex<double>*, long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0x316>
+   32b64:	48 8d 15 cc 4f 00 00 	lea    0x4fcc(%rip),%rdx        # 37b37 <std::adopt_lock+0x8>
+   32b6b:	48 8d 05 0e 19 01 00 	lea    0x1190e(%rip),%rax        # 44480 <std::cout@GLIBCXX_3.4>
+   32b72:	48 89 d6             	mov    %rdx,%rsi
+   32b75:	48 89 c7             	mov    %rax,%rdi
+   32b78:	e8 33 38 fd ff       	call   63b0 <std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)@plt>
+   32b7d:	48 8b 15 24 14 01 00 	mov    0x11424(%rip),%rdx        # 43fa8 <std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&)@GLIBCXX_3.4>
+   32b84:	48 89 d6             	mov    %rdx,%rsi
+   32b87:	48 89 c7             	mov    %rax,%rdi
+   32b8a:	e8 61 38 fd ff       	call   63f0 <std::ostream::operator<<(std::ostream& (*)(std::ostream&))@plt>
+   32b8f:	48 8d 45 a0          	lea    -0x60(%rbp),%rax
+   32b93:	48 8b 95 58 ff ff ff 	mov    -0xa8(%rbp),%rdx
+   32b9a:	48 8d 0d ac 4f 00 00 	lea    0x4fac(%rip),%rcx        # 37b4d <std::adopt_lock+0x1e>
+   32ba1:	48 89 ce             	mov    %rcx,%rsi
+   32ba4:	48 89 c7             	mov    %rax,%rdi
+   32ba7:	e8 c3 55 fe ff       	call   1816f <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)>
+   32bac:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+   32bb0:	48 8d 15 9e 4f 00 00 	lea    0x4f9e(%rip),%rdx        # 37b55 <std::adopt_lock+0x26>
+   32bb7:	48 8d 4d a0          	lea    -0x60(%rbp),%rcx
+   32bbb:	48 89 ce             	mov    %rcx,%rsi
+   32bbe:	48 89 c7             	mov    %rax,%rdi
+   32bc1:	e8 43 03 00 00       	call   32f09 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&, char const*)>
+   32bc6:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+   32bca:	48 8d 15 af 18 01 00 	lea    0x118af(%rip),%rdx        # 44480 <std::cout@GLIBCXX_3.4>
+   32bd1:	48 89 c6             	mov    %rax,%rsi
+   32bd4:	48 89 d7             	mov    %rdx,%rdi
+   32bd7:	e8 64 37 fd ff       	call   6340 <std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)@plt>
+   32bdc:	48 89 c2             	mov    %rax,%rdx
+   32bdf:	48 8b 45 88          	mov    -0x78(%rbp),%rax
+   32be3:	48 89 c6             	mov    %rax,%rsi
+   32be6:	48 89 d7             	mov    %rdx,%rdi
+   32be9:	e8 72 3b fd ff       	call   6760 <std::ostream::operator<<(long)@plt>
+   32bee:	48 89 c2             	mov    %rax,%rdx
+   32bf1:	48 8d 05 60 4f 00 00 	lea    0x4f60(%rip),%rax        # 37b58 <std::adopt_lock+0x29>
+   32bf8:	48 89 c6             	mov    %rax,%rsi
+   32bfb:	48 89 d7             	mov    %rdx,%rdi
+   32bfe:	e8 ad 37 fd ff       	call   63b0 <std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)@plt>
+   32c03:	48 89 c2             	mov    %rax,%rdx
+   32c06:	48 8d 85 70 ff ff ff 	lea    -0x90(%rbp),%rax
+   32c0d:	48 89 c6             	mov    %rax,%rsi
+   32c10:	48 89 d7             	mov    %rdx,%rdi
+   32c13:	e8 38 38 fd ff       	call   6450 <std::basic_ostream<char, std::char_traits<char> >& std::operator<< <double, char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::complex<double> const&)@plt>
+   32c18:	48 8b 15 89 13 01 00 	mov    0x11389(%rip),%rdx        # 43fa8 <std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&)@GLIBCXX_3.4>
+   32c1f:	48 89 d6             	mov    %rdx,%rsi
+   32c22:	48 89 c7             	mov    %rax,%rdi
+   32c25:	e8 c6 37 fd ff       	call   63f0 <std::ostream::operator<<(std::ostream& (*)(std::ostream&))@plt>
+   32c2a:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+   32c2e:	48 89 c7             	mov    %rax,%rdi
+
+
+Function: TestScheme::testEncodeSingle(long, long, long)
+----------------------------------------
+0000000000007b0e <TestScheme::testEncodeSingle(long, long, long)>:
+    7b0e:	55                   	push   %rbp
+    7b0f:	48 89 e5             	mov    %rsp,%rbp
+    7b12:	53                   	push   %rbx
+    7b13:	48 81 ec 38 02 00 00 	sub    $0x238,%rsp
+    7b1a:	e8 e1 e7 ff ff       	call   6300 <mcount@plt>
+    7b1f:	48 89 bd d8 fd ff ff 	mov    %rdi,-0x228(%rbp)
+    7b26:	48 89 b5 d0 fd ff ff 	mov    %rsi,-0x230(%rbp)
+    7b2d:	48 89 95 c8 fd ff ff 	mov    %rdx,-0x238(%rbp)
+    7b34:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+    7b3b:	00 00 
+    7b3d:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+    7b41:	31 c0                	xor    %eax,%eax
+    7b43:	48 8d 15 3e e6 02 00 	lea    0x2e63e(%rip),%rdx        # 36188 <__gnu_cxx::__default_lock_policy+0xc4>
+    7b4a:	48 8d 05 2f c9 03 00 	lea    0x3c92f(%rip),%rax        # 44480 <std::cout@GLIBCXX_3.4>
+    7b51:	48 89 d6             	mov    %rdx,%rsi
+    7b54:	48 89 c7             	mov    %rax,%rdi
+    7b57:	e8 54 e8 ff ff       	call   63b0 <std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)@plt>
+    7b5c:	48 8b 15 45 c4 03 00 	mov    0x3c445(%rip),%rdx        # 43fa8 <std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&)@GLIBCXX_3.4>
+    7b63:	48 89 d6             	mov    %rdx,%rsi
+    7b66:	48 89 c7             	mov    %rax,%rdi
+    7b69:	e8 82 e8 ff ff       	call   63f0 <std::ostream::operator<<(std::ostream& (*)(std::ostream&))@plt>
+    7b6e:	48 8d 85 40 fe ff ff 	lea    -0x1c0(%rbp),%rax
+    7b75:	48 89 c7             	mov    %rax,%rdi
+    7b78:	e8 3d 03 01 00       	call   17eba <TimeUtils::TimeUtils()>
+    7b7d:	48 8b 3d 44 f1 02 00 	mov    0x2f144(%rip),%rdi        # 36cc8 <__gnu_cxx::__default_lock_policy+0xc04>
+    7b84:	48 8b 95 d0 fd ff ff 	mov    -0x230(%rbp),%rdx
+    7b8b:	48 8b b5 d8 fd ff ff 	mov    -0x228(%rbp),%rsi
+    7b92:	48 8d 85 10 ff ff ff 	lea    -0xf0(%rbp),%rax
+    7b99:	b9 40 00 00 00       	mov    $0x40,%ecx
+    7b9e:	66 48 0f 6e c7       	movq   %rdi,%xmm0
+    7ba3:	48 89 c7             	mov    %rax,%rdi
+    7ba6:	e8 ad 06 01 00       	call   18258 <Context::Context(long, long, double, long)>
+    7bab:	48 8b 8d d8 fd ff ff 	mov    -0x228(%rbp),%rcx
+    7bb2:	48 8d 85 f0 fd ff ff 	lea    -0x210(%rbp),%rax
+    7bb9:	ba 40 00 00 00       	mov    $0x40,%edx
+    7bbe:	48 89 ce             	mov    %rcx,%rsi
+    7bc1:	48 89 c7             	mov    %rax,%rdi
+    7bc4:	e8 c3 5b 02 00       	call   2d78c <SecretKey::SecretKey(long, long)>
+    7bc9:	48 8d 95 10 ff ff ff 	lea    -0xf0(%rbp),%rdx
+    7bd0:	48 8d 8d f0 fd ff ff 	lea    -0x210(%rbp),%rcx
+    7bd7:	48 8d 85 a0 fe ff ff 	lea    -0x160(%rbp),%rax
+    7bde:	48 89 ce             	mov    %rcx,%rsi
+    7be1:	48 89 c7             	mov    %rax,%rdi
+    7be4:	e8 b1 c1 01 00       	call   23d9a <Scheme::Scheme(SecretKey&, Context&)>
+    7be9:	bf 00 00 00 00       	mov    $0x0,%edi
+    7bee:	e8 8d e7 ff ff       	call   6380 <time@plt>
+    7bf3:	89 c7                	mov    %eax,%edi
+    7bf5:	e8 a6 e7 ff ff       	call   63a0 <srand@plt>
+    7bfa:	48 8b 05 cf f0 02 00 	mov    0x2f0cf(%rip),%rax        # 36cd0 <__gnu_cxx::__default_lock_policy+0xc0c>
+    7c01:	66 48 0f 6e c0       	movq   %rax,%xmm0
+    7c06:	e8 c9 4a 01 00       	call   1c6d4 <EvaluatorUtils::randomComplex(double)>
+    7c0b:	66 48 0f 7e c0       	movq   %xmm0,%rax
+    7c10:	66 0f 28 c1          	movapd %xmm1,%xmm0
+    7c14:	48 89 85 20 fe ff ff 	mov    %rax,-0x1e0(%rbp)
+    7c1b:	f2 0f 11 85 28 fe ff 	movsd  %xmm0,-0x1d8(%rbp)
+    7c22:	ff 
+    7c23:	48 8d 85 70 fe ff ff 	lea    -0x190(%rbp),%rax
+    7c2a:	48 89 85 f8 fd ff ff 	mov    %rax,-0x208(%rbp)
+    7c31:	90                   	nop
+    7c32:	90                   	nop
+    7c33:	48 8d 95 70 fe ff ff 	lea    -0x190(%rbp),%rdx
+    7c3a:	48 8d 0d 68 e5 02 00 	lea    0x2e568(%rip),%rcx        # 361a9 <__gnu_cxx::__default_lock_policy+0xe5>
+    7c41:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+    7c45:	48 89 ce             	mov    %rcx,%rsi
+    7c48:	48 89 c7             	mov    %rax,%rdi
+
+
+Function: TimeUtils::TimeUtils()
+----------------------------------------
+0000000000017eba <TimeUtils::TimeUtils()>:
+   17eba:	55                   	push   %rbp
+   17ebb:	48 89 e5             	mov    %rsp,%rbp
+   17ebe:	48 83 ec 08          	sub    $0x8,%rsp
+   17ec2:	e8 39 e4 fe ff       	call   6300 <mcount@plt>
+   17ec7:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+   17ecb:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+   17ecf:	66 0f ef c0          	pxor   %xmm0,%xmm0
+   17ed3:	f2 0f 11 40 20       	movsd  %xmm0,0x20(%rax)
+   17ed8:	90                   	nop
+   17ed9:	c9                   	leave
+   17eda:	c3                   	ret
+   17edb:	90                   	nop
+
+
+Function: TimeUtils::start(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+----------------------------------------
+0000000000017edc <TimeUtils::start(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)>:
+   17edc:	55                   	push   %rbp
+   17edd:	48 89 e5             	mov    %rsp,%rbp
+   17ee0:	53                   	push   %rbx
+   17ee1:	48 83 ec 48          	sub    $0x48,%rsp
+   17ee5:	e8 16 e4 fe ff       	call   6300 <mcount@plt>
+   17eea:	48 89 7d b8          	mov    %rdi,-0x48(%rbp)
+   17eee:	48 89 75 b0          	mov    %rsi,-0x50(%rbp)
+   17ef2:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+   17ef9:	00 00 
+   17efb:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+   17eff:	31 c0                	xor    %eax,%eax
+   17f01:	48 8d 15 e2 ee 01 00 	lea    0x1eee2(%rip),%rdx        # 36dea <std::piecewise_construct+0x1>
+   17f08:	48 8d 05 71 c5 02 00 	lea    0x2c571(%rip),%rax        # 44480 <std::cout@GLIBCXX_3.4>
+   17f0f:	48 89 d6             	mov    %rdx,%rsi
+   17f12:	48 89 c7             	mov    %rax,%rdi
+   17f15:	e8 96 e4 fe ff       	call   63b0 <std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)@plt>
+   17f1a:	48 8b 15 87 c0 02 00 	mov    0x2c087(%rip),%rdx        # 43fa8 <std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&)@GLIBCXX_3.4>
+   17f21:	48 89 d6             	mov    %rdx,%rsi
+   17f24:	48 89 c7             	mov    %rax,%rdi
+   17f27:	e8 c4 e4 fe ff       	call   63f0 <std::ostream::operator<<(std::ostream& (*)(std::ostream&))@plt>
+   17f2c:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+   17f30:	48 8b 55 b0          	mov    -0x50(%rbp),%rdx
+   17f34:	48 8d 0d c2 ee 01 00 	lea    0x1eec2(%rip),%rcx        # 36dfd <std::piecewise_construct+0x14>
+   17f3b:	48 89 ce             	mov    %rcx,%rsi
+   17f3e:	48 89 c7             	mov    %rax,%rdi
+   17f41:	e8 29 02 00 00       	call   1816f <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)>
+   17f46:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+   17f4a:	48 8d 15 2f c5 02 00 	lea    0x2c52f(%rip),%rdx        # 44480 <std::cout@GLIBCXX_3.4>
+   17f51:	48 89 c6             	mov    %rax,%rsi
+   17f54:	48 89 d7             	mov    %rdx,%rdi
+   17f57:	e8 e4 e3 fe ff       	call   6340 <std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)@plt>
+   17f5c:	48 8b 15 45 c0 02 00 	mov    0x2c045(%rip),%rdx        # 43fa8 <std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&)@GLIBCXX_3.4>
+   17f63:	48 89 d6             	mov    %rdx,%rsi
+   17f66:	48 89 c7             	mov    %rax,%rdi
+   17f69:	e8 82 e4 fe ff       	call   63f0 <std::ostream::operator<<(std::ostream& (*)(std::ostream&))@plt>
+   17f6e:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+   17f72:	48 89 c7             	mov    %rax,%rdi
+
+
+Function: TimeUtils::stop(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+----------------------------------------
+0000000000017fd6 <TimeUtils::stop(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)>:
+   17fd6:	55                   	push   %rbp
+   17fd7:	48 89 e5             	mov    %rsp,%rbp
+   17fda:	53                   	push   %rbx
+   17fdb:	48 83 ec 48          	sub    $0x48,%rsp
+   17fdf:	e8 1c e3 fe ff       	call   6300 <mcount@plt>
+   17fe4:	48 89 7d b8          	mov    %rdi,-0x48(%rbp)
+   17fe8:	48 89 75 b0          	mov    %rsi,-0x50(%rbp)
+   17fec:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+   17ff3:	00 00 
+   17ff5:	48 89 45 e8          	mov    %rax,-0x18(%rbp)
+   17ff9:	31 c0                	xor    %eax,%eax
+   17ffb:	48 8b 45 b8          	mov    -0x48(%rbp),%rax
+   17fff:	48 83 c0 10          	add    $0x10,%rax
+   18003:	be 00 00 00 00       	mov    $0x0,%esi
+   18008:	48 89 c7             	mov    %rax,%rdi
+   1800b:	e8 10 e6 fe ff       	call   6620 <gettimeofday@plt>
+   18010:	48 8b 45 b8          	mov    -0x48(%rbp),%rax
+   18014:	48 8b 50 10          	mov    0x10(%rax),%rdx
+   18018:	48 8b 45 b8          	mov    -0x48(%rbp),%rax
+   1801c:	48 8b 00             	mov    (%rax),%rax
+   1801f:	48 29 c2             	sub    %rax,%rdx
+   18022:	66 0f ef c9          	pxor   %xmm1,%xmm1
+   18026:	f2 48 0f 2a ca       	cvtsi2sd %rdx,%xmm1
+   1802b:	f2 0f 10 05 0d ee 01 	movsd  0x1ee0d(%rip),%xmm0        # 36e40 <std::piecewise_construct+0x57>
+   18032:	00 
+   18033:	f2 0f 59 c1          	mulsd  %xmm1,%xmm0
+   18037:	48 8b 45 b8          	mov    -0x48(%rbp),%rax
+   1803b:	f2 0f 11 40 20       	movsd  %xmm0,0x20(%rax)
+   18040:	48 8b 45 b8          	mov    -0x48(%rbp),%rax
+   18044:	f2 0f 10 48 20       	movsd  0x20(%rax),%xmm1
+   18049:	48 8b 45 b8          	mov    -0x48(%rbp),%rax
+   1804d:	48 8b 50 18          	mov    0x18(%rax),%rdx
+   18051:	48 8b 45 b8          	mov    -0x48(%rbp),%rax
+   18055:	48 8b 40 08          	mov    0x8(%rax),%rax
+   18059:	48 29 c2             	sub    %rax,%rdx
+   1805c:	66 0f ef c0          	pxor   %xmm0,%xmm0
+   18060:	f2 48 0f 2a c2       	cvtsi2sd %rdx,%xmm0
+   18065:	f2 0f 10 15 d3 ed 01 	movsd  0x1edd3(%rip),%xmm2        # 36e40 <std::piecewise_construct+0x57>
+   1806c:	00 
+   1806d:	f2 0f 5e c2          	divsd  %xmm2,%xmm0
+   18071:	f2 0f 58 c1          	addsd  %xmm1,%xmm0
+   18075:	48 8b 45 b8          	mov    -0x48(%rbp),%rax
+   18079:	f2 0f 11 40 20       	movsd  %xmm0,0x20(%rax)
+   1807e:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+   18082:	48 8d 15 7b ed 01 00 	lea    0x1ed7b(%rip),%rdx        # 36e04 <std::piecewise_construct+0x1b>
+   18089:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+   1808d:	48 89 ce             	mov    %rcx,%rsi
+   18090:	48 89 c7             	mov    %rax,%rdi
+   18093:	e8 0b d3 ff ff       	call   153a3 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*)>
+   18098:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+   1809c:	48 8d 15 dd c3 02 00 	lea    0x2c3dd(%rip),%rdx        # 44480 <std::cout@GLIBCXX_3.4>
+   180a3:	48 89 c6             	mov    %rax,%rsi
+   180a6:	48 89 d7             	mov    %rdx,%rdi
+   180a9:	e8 92 e2 fe ff       	call   6340 <std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)@plt>
+   180ae:	48 89 c2             	mov    %rax,%rdx
+   180b1:	48 8b 45 b8          	mov    -0x48(%rbp),%rax
+   180b5:	48 8b 40 20          	mov    0x20(%rax),%rax
+   180b9:	66 48 0f 6e c0       	movq   %rax,%xmm0
+   180be:	48 89 d7             	mov    %rdx,%rdi
+   180c1:	e8 1a e7 fe ff       	call   67e0 <std::ostream::operator<<(double)@plt>
+   180c6:	48 89 c2             	mov    %rax,%rdx
+   180c9:	48 8d 05 3d ed 01 00 	lea    0x1ed3d(%rip),%rax        # 36e0d <std::piecewise_construct+0x24>
+   180d0:	48 89 c6             	mov    %rax,%rsi
+   180d3:	48 89 d7             	mov    %rdx,%rdi
+   180d6:	e8 d5 e2 fe ff       	call   63b0 <std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)@plt>
+   180db:	48 8b 15 c6 be 02 00 	mov    0x2bec6(%rip),%rdx        # 43fa8 <std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&)@GLIBCXX_3.4>
+   180e2:	48 89 d6             	mov    %rdx,%rsi
+   180e5:	48 89 c7             	mov    %rax,%rdi
+   180e8:	e8 03 e3 fe ff       	call   63f0 <std::ostream::operator<<(std::ostream& (*)(std::ostream&))@plt>
+   180ed:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+   180f1:	48 89 c7             	mov    %rax,%rdi
+
+
+Function: main
+----------------------------------------
+0000000000006969 <main>:
+    6969:	55                   	push   %rbp
+    696a:	48 89 e5             	mov    %rsp,%rbp
+    696d:	e8 8e f9 ff ff       	call   6300 <mcount@plt>
+    6972:	ba 1e 00 00 00       	mov    $0x1e,%edx
+    6977:	be 41 00 00 00       	mov    $0x41,%esi
+    697c:	bf 0d 00 00 00       	mov    $0xd,%edi
+    6981:	e8 88 11 00 00       	call   7b0e <TestScheme::testEncodeSingle(long, long, long)>
+    6986:	b8 00 00 00 00       	mov    $0x0,%eax
+    698b:	5d                   	pop    %rbp
+    698c:	c3                   	ret
+
+
+Function: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&)
+----------------------------------------
+Function 'std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&)' not found
+
+
+Function: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()
+----------------------------------------
+Function 'std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string()' not found
+
+
+Function: std::__new_allocator<char>::~__new_allocator()
+----------------------------------------
+Function 'std::__new_allocator<char>::~__new_allocator()' not found
+
