@@ -410,63 +410,64 @@ Ciphertext Scheme::multBitFlip(Ciphertext& cipher1, Ciphertext& cipher2, LineToA
 	Key key = keyMap.at(MULTIPLICATION);
 
 	Ring2Utils::add(axbx1, cipher1.ax, cipher1.bx, q, context.N);
-    if(line == 0){
+    if(line == 0 && NumBits(axbx1[coeffIndex])>=bitIndex){
         axbx1[coeffIndex] = bit_flip(axbx1[coeffIndex], bitIndex);
     }
 	Ring2Utils::add(axbx2, cipher2.ax, cipher2.bx, q, context.N);
-    if(line == 1){
+    if(line == 1 && NumBits(axbx2[coeffIndex])>=bitIndex){
         axbx2[coeffIndex] = bit_flip(axbx2[coeffIndex], bitIndex);
     }
 	Ring2Utils::multAndEqual(axbx1, axbx2, q, context.N);
-    if(line == 2){
+    if(line == 2 && NumBits(axbx1[coeffIndex])>=bitIndex){
         axbx1[coeffIndex] = bit_flip(axbx1[coeffIndex], bitIndex);
     }
 	Ring2Utils::mult(axax, cipher1.ax, cipher2.ax, q, context.N);
-    if(line == 3){
+    if(line == 3 && NumBits(axax[coeffIndex])>=bitIndex){
         axax[coeffIndex] = bit_flip(axax[coeffIndex], bitIndex);
     }
 	Ring2Utils::mult(bxbx, cipher1.bx, cipher2.bx, q, context.N);
-    if(line == 4){
+    if(line == 4 && NumBits(bxbx[coeffIndex])>=bitIndex){
         bxbx[coeffIndex] = bit_flip(bxbx[coeffIndex], bitIndex);
     }
 
 	Ring2Utils::mult(axmult, axax, key.ax, qQ, context.N);
-    if(line == 5){
+    if(line == 5 && NumBits(axmult[coeffIndex])>=bitIndex){
         axmult[coeffIndex] = bit_flip(axmult[coeffIndex], bitIndex);
     }
 	Ring2Utils::mult(bxmult, axax, key.bx, qQ, context.N);
-    if(line == 6){
+    if(line == 6 && NumBits(bxmult[coeffIndex])>=bitIndex){
         bxmult[coeffIndex] = bit_flip(bxmult[coeffIndex], bitIndex);
     }
 
 	Ring2Utils::rightShiftAndEqual(axmult, context.logQ, context.N);
-    if(line == 7){
+    if(line == 7 && NumBits(axmult[coeffIndex])>=bitIndex){
         axmult[coeffIndex] = bit_flip(axmult[coeffIndex], bitIndex);
     }
 	Ring2Utils::rightShiftAndEqual(bxmult, context.logQ, context.N);
-    if(line == 8){
+    if(line == 8 && NumBits(bxmult[coeffIndex])>=bitIndex){
         bxmult[coeffIndex] = bit_flip(bxmult[coeffIndex], bitIndex);
     }
 
 	Ring2Utils::addAndEqual(axmult, axbx1, q, context.N);
-    if(line == 9){
+    if(line == 9 && NumBits(axmult[coeffIndex])>=bitIndex){
         axmult[coeffIndex] = bit_flip(axmult[coeffIndex], bitIndex);
     }
 	Ring2Utils::subAndEqual(axmult, bxbx, q, context.N);
-    if(line == 10){
+    if(line == 10 && NumBits(axmult[coeffIndex])>=bitIndex){
         axmult[coeffIndex] = bit_flip(axmult[coeffIndex], bitIndex);
     }
 	Ring2Utils::subAndEqual(axmult, axax, q, context.N);
-    if(line == 11){
+    if(line == 11 && NumBits(axmult[coeffIndex])>=bitIndex){
         axmult[coeffIndex] = bit_flip(axmult[coeffIndex], bitIndex);
     }
 	Ring2Utils::addAndEqual(bxmult, bxbx, q, context.N);
-    if(line == 12){
+    if(line == 12 && NumBits(bxmult[coeffIndex])>=bitIndex){
         bxmult[coeffIndex] = bit_flip(bxmult[coeffIndex], bitIndex);
     }
 
 	return Ciphertext(axmult, bxmult, cipher1.logp + cipher2.logp, cipher1.logq, cipher1.slots, cipher1.isComplex);
 }
+
 
 Ciphertext Scheme::multBitFlipShort(Ciphertext& cipher1, Ciphertext& cipher2, LineToAttack line, int bitIndex, int coeffIndex) {
 	ZZ q = context.qpowvec[cipher1.logq];
