@@ -24,6 +24,23 @@ static long ENCRYPTION = 0;
 static long MULTIPLICATION  = 1;
 static long CONJUGATION = 2;
 
+enum LineToAttack {
+    ADD_FIRST_C     = 0,
+    ADD_SECOND_C    = 1,
+    MULT_C0C1       = 2,
+    MULT_C0C0       = 3,
+    MULT_C1C1       = 4,
+    MULT_C0C0kEY0   = 5,
+    MULT_C0C0kEY1   = 6,
+    SHIFT_C0C0kEY0  = 7,
+    SHIFT_C0C0kEY1  = 8,
+    ADD_LAST_C0     = 9,
+    SUB_LAST_C1     = 10,
+    SUB_LAST_C0C1   = 11,
+    ADD_LAST        = 12,
+    NO_ATTACK       = -1
+};
+
 class Scheme {
 private:
 public:
