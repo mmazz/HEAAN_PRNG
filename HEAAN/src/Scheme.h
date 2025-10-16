@@ -358,6 +358,8 @@ public:
 	 * @return ciphertext(m1 * m2)
 	 */
 	Ciphertext mult(Ciphertext& cipher1, Ciphertext& cipher2);
+    Ciphertext multBitFlip(Ciphertext& cipher1, Ciphertext& cipher2, LineToAttack line = NO_ATTACK,  int bitIndex = -1,  int coeffIndex = 0);
+    Ciphertext multBitFlipShort(Ciphertext& cipher1, Ciphertext& cipher2, LineToAttack line = NO_ATTACK,  int bitIndex = -1,  int coeffIndex = 0);
 
 	/**
 	 * multiplication of ciphertexts. This algorithm contain relinearization.
