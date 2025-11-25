@@ -173,6 +173,29 @@ Ciphertext Scheme::encryptMsg(Plaintext& msg) {
 	return Ciphertext(ax, bx, msg.logp, msg.logq, msg.slots, msg.isComplex);
 }
 
+Ciphertext Scheme::encryptMsg(Plaintext& msg, ZZ seed) {
+    NTL::SetSeed(seed);
+	ZZX ax, bx, vx, ex;
+	Key key = keyMap.at(ENCRYPTION);
+	ZZ qQ = context.qpowvec[msg.logq + context.logQ];
+
+	NumUtils::sampleZO(vx, context.N);
+	Ring2Utils::mult(ax, vx, key.ax, qQ, context.N);
+	NumUtils::sampleGauss(ex, context.N, context.sigma);
+	Ring2Utils::addAndEqual(ax, ex, qQ, context.N);
+
+	Ring2Utils::mult(bx, vx, key.bx, qQ, context.N);
+	NumUtils::sampleGauss(ex, context.N, context.sigma);
+	Ring2Utils::addAndEqual(bx, ex, qQ, context.N);
+
+	Ring2Utils::addAndEqual(bx, msg.mx, qQ, context.N);
+
+	Ring2Utils::rightShiftAndEqual(ax, context.logQ, context.N);
+	Ring2Utils::rightShiftAndEqual(bx, context.logQ, context.N);
+
+	return Ciphertext(ax, bx, msg.logp, msg.logq, msg.slots, msg.isComplex);
+}
+
 Plaintext Scheme::decryptMsg(SecretKey& secretKey, Ciphertext& cipher) {
 	ZZ q = context.qpowvec[cipher.logq];
 
