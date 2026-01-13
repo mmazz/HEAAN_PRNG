@@ -6,6 +6,20 @@
 
 - You can also find this version in https://github.com/snucrypto/HEAAN/releases/tag/1.0
 
+## PRNG Control
+
+We add new encrypt method to select a seed:
+```
+Ciphertext Scheme::encryptMsg(Plaintext& msg, ZZ seed)
+```
+
+### Example
+
+```
+NTL::ZZ seed = ZZ(1);
+Ciphertext cipher = scheme.encryptMsg(plain, seed);
+```
+
 ## Dependencies
 
 - NTL
@@ -15,6 +29,6 @@
 cd HEAAN/lib
 make -j$(nproc)
 
-  
+
 # License
 Copyright (c) by CryptoLab inc. This program is licensed under a Creative Commons Attribution-NonCommercial 3.0 Unported License. You should have received a copy of the license along with this work. If not, see http://creativecommons.org/licenses/by-nc/3.0/.
