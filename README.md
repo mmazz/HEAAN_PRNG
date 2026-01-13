@@ -22,7 +22,39 @@ Ciphertext cipher = scheme.encryptMsg(plain, seed);
 
 ## Dependencies
 
+- lzip
+- GMP
+```
+curl -O https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.lz
+tar --lzip -xvf gmp-6.1.2.tar.lz
+( \
+
+  cd ./gmp-6.1.2 || exit; \
+  ./configure; \
+  make; \
+  make check; \
+  sudo make install; \
+  cd ..; \
+)
+rm gmp-6.1.2.tar.lz
+rm -rf gmp-6.1.2
+```
 - NTL
+```
+curl -O https://libntl.org/ntl-10.5.0.tar.gz
+tar -xvf ntl-10.5.0.tar.gz
+( \
+  cd ./ntl-10.5.0/src || exit; \
+  ./configure NTL_THREADS=on NTL_THREAD_BOOST=on NTL_EXCEPTIONS=on SHARED=on NTL_STD_CXX11=on NTL_SAFE_VECTORS=off TUNE=generic; \
+  make; \
+  make check; \
+  sudo make install; \
+  cd ../.. \
+)
+rm ntl-10.5.0.tar.gz
+rm -rf ntl-10.5.0
+```  
+
 
 ## Instalation
 
